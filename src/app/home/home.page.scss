@@ -1,27 +1,77 @@
-#container {
-  text-align: center;
+.cam-content { --background: #000; }
 
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+video, canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; // mismo ajuste en ambos para que las cajas coincidan
+}
+
+.top-bar {
+  position: absolute;
+  top: calc(env(safe-area-inset-top) + 12px);
+  left: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  backdrop-filter: blur(6px);
+  &.ok { color: #4cff9a; }
+}
+
+.chips {
+  position: absolute;
+  top: calc(env(safe-area-inset-top) + 52px);
+  left: 12px;
+  right: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  background: rgba(0, 255, 136, .85);
+  color: #002b17;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.panel {
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0;
+  padding: 14px 16px calc(env(safe-area-inset-bottom) + 16px);
+  background: linear-gradient(transparent, rgba(0, 0, 0, .85) 40%);
+  color: #fff;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.slider-row { font-size: 13px; }
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
+.main-btn { min-width: 160px; }
+.error { color: #ff6b6b; text-align: center; font-size: 13px; }
